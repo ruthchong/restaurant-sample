@@ -21,3 +21,7 @@ document.querySelector(".close").onclick = function() {
 document.getElementById("reservationBtn").onclick = function() {
     window.location.href = "https://docs.google.com/forms";
 };
+
+document.getElementById("menuBtn").addEventListener("click", function() {
+    document.getElementById("menuPanel").classList.toggle("show");
+});

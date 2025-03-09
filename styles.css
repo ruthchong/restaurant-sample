@@ -62,3 +62,29 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.menu-panel {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    transition: top 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu-panel.show {
+    top: 0;
+}
+.menu-section {
+    transition: transform 0.3s ease-in-out;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.menu-section:hover {
+    transform: scale(1.1);
+}
