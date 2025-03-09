@@ -1,9 +1,10 @@
-body, html {
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    background-color: black; /* 确保背景是黑色 */
+    overflow-x: hidden; /* 防止横向滚动 */
 }
 header {
     position: absolute;
@@ -19,10 +20,42 @@ header {
 .top-left, .top-right {
     display: flex;
     gap: 10px;
+    
+}
+
+.top-left button {
+    background-color: #5a211f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.top-left button:hover {
+    background-color: #9b1d19;
 }
 .top-right {
     margin-right: 35px;
+    
 }
+
+.top-right button {
+    background-color: #5a211f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.top-right button:hover {
+    background-color: #9b1d19;
+}
+
+
 .logo {
     position: absolute;
     top: 100%;
@@ -34,10 +67,45 @@ header {
     width: 100%; /* 让图片填充 .logo 容器 */
     height: auto; /* 保持图片的宽高比 */
 }
+
 .slideshow-container {
-    width: 100%;
-    height: 100vh;
     position: relative;
+    max-width: 100%;
+    height: 500px; /* 根据需要调整高度 */
+    margin: auto;
+    overflow: hidden;
+    background-color: black; /* 背景设为黑色 */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    background-color: black; /* 确保每张幻灯片的背景也是黑色 */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fade {
+    animation: fadeEffect 1.5s ease-in-out forwards;
+}
+
+/* 渐显动画，从黑色背景出现 */
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+        filter: brightness(0); /* 初始黑色 */
+    }
+    to {
+        opacity: 1;
+        filter: brightness(1); /* 渐显至正常亮度 */
+    }
 }
 .slide {
     display: none;
@@ -56,7 +124,8 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    color:aliceblue;
+    background: rgb(46, 46, 46);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -84,6 +153,7 @@ header {
     padding: 15px;
     cursor: pointer;
     font-size: 1.5rem;
+    text-align: center;
 }
 .menu-section:hover {
     transform: scale(1.1);

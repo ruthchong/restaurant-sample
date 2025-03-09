@@ -25,3 +25,24 @@ document.getElementById("reservationBtn").onclick = function() {
 document.getElementById("menuBtn").addEventListener("click", function() {
     document.getElementById("menuPanel").classList.toggle("show");
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    
+    function showSlides() {
+        // 隐藏所有幻灯片
+        slides.forEach(slide => {
+            slide.style.opacity = "0";
+        });
+
+        // 显示当前幻灯片
+        slides[slideIndex].style.opacity = "1";
+
+        // 更新索引，循环播放
+        slideIndex = (slideIndex + 1) % slides.length;
+        setTimeout(showSlides, 3000); // 3秒切换一次
+    }
+
+    showSlides();
+});

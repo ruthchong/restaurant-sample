@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>餐厅首页</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
@@ -11,14 +11,13 @@
     <header>
         <div class="top-left">
             <button id="menuBtn">☰</button>
-            <button id="langBtn">EN</button>
         </div>
         <div class="logo">
             <img src="logo.png" alt="餐厅Logo" id="logo">
         </div>
         <div class="top-right">
             <button id="locationBtn">Location</button>
-            <button id="reservationBtn">🍽 预订</button>
+            <button id="reservationBtn">🍽 Booking</button>
         </div>
     </header>
     
@@ -32,23 +31,28 @@
     
     <div id="menuPanel" class="menu-panel">
         <div class="menu-content">
-            <div class="menu-section" id="intro">一碗好餐厅的介绍</div>
-            <div class="menu-section" id="venue">我们场地介绍</div>
-            <div class="menu-section" id="signature">4道招牌菜的重点介绍</div>
-            <div class="menu-section" id="services">我们的业务</div>
-            <div class="menu-section" id="work">我们的工作</div>
+            <div class="menu-section" id="intro" onclick="location.href='intro.html'">Intro</div>
+            <div class="menu-section" id="venue" onclick="location.href='veneus.html'">Discovery Our Veneus</div>
+            <div class="menu-section" id="signature">Singature Dishes</div>
+            <div class="menu-section" id="services">Our Service</div>
+            <div class="menu-section" id="work">Work At One Bowl Nice</div>
+            <div class="menu-section" id="gallery">Gallery</div>
         </div>
     </div>
     
     <div id="locationPopup" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
-            <p>📍 我们的地址：某某市某某街 123 号</p>
+            <address>
+                <p>万顺美食坊</p>
+                <p>+6018-870 4123</p>
+                <p>25, Jalan Indah 1/2, Taman Bukit Indah, 81200 Johor Bahru, Johor Darul Ta'zim</p><br/>
+                <p>九号巷子</p>
+                <p>+6011-6172 7335</p>
+                <p>Jalan Permas Utara, Bandar Baru Permas Jaya, 81750 Masai, Johor Darul Ta'zim</p>
+            </address>
+            <p></p>
         </div>
     </div>
-    
-
-    
-
 </body>
 </html>
