@@ -1,58 +1,188 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>餐厅首页</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Bowl Nice</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="top-left">
-            <button id="menuBtn">☰</button>
-        </div>
-        <div class="logo">
-            <img src="logo.png" alt="餐厅Logo" id="logo">
-        </div>
-        <div class="top-right">
-            <button id="locationBtn">Location</button>
-            <button id="reservationBtn">🍽 Booking</button>
-        </div>
-    </header>
-    
-    <div class="slideshow-container">
-        <div class="slide fade"><img src="image1.jpg" alt="幻灯片1"></div>
-        <div class="slide fade"><img src="image2.jpg" alt="幻灯片2"></div>
-        <div class="slide fade"><img src="image3.jpg" alt="幻灯片3"></div>
-        <div class="slide fade"><img src="image4.jpg" alt="幻灯片4"></div>
-        <div class="slide fade"><img src="image5.jpg" alt="幻灯片5"></div>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">One Bowl Nice</div>
+    <!-- 汉堡菜单按钮 -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>                
+      <span class="bar"></span>
     </div>
-    
-    <div id="menuPanel" class="menu-panel">
-        <div class="menu-content">
-            <div class="menu-section" id="intro" onclick="location.href='intro.html'">Intro</div>
-            <div class="menu-section" id="venue" onclick="location.href='veneus.html'">Discovery Our Veneus</div>
-            <div class="menu-section" id="signature">Singature Dishes</div>
-            <div class="menu-section" id="services">Our Service</div>
-            <div class="menu-section" id="work">Work At One Bowl Nice</div>
-            <div class="menu-section" id="gallery">Gallery</div>
-        </div>
+    <!-- 导航链接 -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#venues">Venues</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="#"><img src="Xiaohongshu.png" alt="Xiaohongshu"></a><a href="#"><img src="facebook.png" alt="Facebook"></a>
+      
     </div>
-    
-    <div id="locationPopup" class="popup">
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <address>
-                <p>万顺美食坊</p>
-                <p>+6018-870 4123</p>
-                <p>25, Jalan Indah 1/2, Taman Bukit Indah, 81200 Johor Bahru, Johor Darul Ta'zim</p><br/>
-                <p>九号巷子</p>
-                <p>+6011-6172 7335</p>
-                <p>Jalan Permas Utara, Bandar Baru Permas Jaya, 81750 Masai, Johor Darul Ta'zim</p>
-            </address>
-            <p></p>
-        </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="home-section">
+    <!-- 幻灯片容器 -->
+    <div class="slideshow">
+      <div class="slide" style="background-image: url('image3.jpg');"></div>
+      <div class="slide" style="background-image: url('image1.jpg');"></div>
+      <div class="slide" style="background-image: url('image2.jpg');"></div>
+      <div class="slide" style="background-image: url('image4.jpg');"></div>
+      <div class="slide" style="background-image: url('image5.jpg');"></div>
     </div>
+    <div class="overlay"></div>
+    <div class="home-content">
+      <h1>Welcome to One Bowl Nice</h1>
+      <p style="color:white;">Experience the Art of Exquisite Chinese Cuisine</p>
+      <a href="#menu" class="btn">View Menu</a>
+      <a href="#events" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+<section id="about" class="about-section">
+  <h2>About Us</h2>
+  <p>One Bowl Nice is a place where luxury meets exceptional service.</p>
+  <div class="team">
+    <div class="team-member">
+      <div class="team-photo"></div>
+      <!-- 人物介绍 -->
+      <div class="team-info">
+        <div class="person">
+          <h3>William Kum</h3>
+          <p>Head Chef</p>
+        </div>
+        <div class="person">
+          <h3>Ruth Chong</h3>
+          <p>Project Planner</p>
+        </div>
+      </div>
+      <!-- 描述 -->
+      <p class="description">
+        Our team is dedicated to providing you with an unforgettable experience. From exquisite cuisine to flawless event planning, we ensure every detail is perfect.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- Venues Section -->
+<section id="venues" class="venues-section">
+<h2>Our Venues</h2>
+<div class="venue-container">
+  <div class="venue-card">
+    <img src="venue1.jpg" alt="Venue 1">
+    <h3>Permas City Walk - Permas Jaya</h3>
+    <p>Capacity: 200 guests</p>
+    <button class="btn" onclick="toggleDetails('venue1-details')">Learn More</button>
+    <div id="venue1-details" class="venue-details" style="display: none;">
+        <h5>📍 : Jalan Permas Utara, Bandar Baru Permas Jaya, 81750 Masai, Johor Darul Ta'zim</h5>
+        <h5>📞 : +6011-61727335</h5>
+    </div>
+</div>
+
+<div class="venue-card">
+    <img src="venue2.jpg" alt="Venue 2">
+    <h3>Wang Shun Best - Bukit Indah</h3>
+    <p>Capacity: 100 guests</p>
+    <button class="btn" onclick="toggleDetails('venue2-details')">Learn More</button>
+    <div id="venue2-details" class="venue-details" style="display: none;">
+        <h5>📍 : 25, Jalan Indah 1/2, Taman Bukit Indah, 81200 Johor Bahru, Johor Darul Ta'zim</h5>
+        <h5>📞 : +6018-8704 123</h6>
+    </div>
+</div>
+
+<div class="venue-card">
+    <img src="venue3.jpg" alt="Venue 3">
+    <h3>The Factory - Sutera Utama</h3>
+    <p>Capacity: 100 guests</p>
+    <button class="btn" onclick="toggleDetails('venue3-details')">Learn More</button>
+    <div id="venue3-details" class="venue-details" style="display: none;">
+        <h5>📍 : 2, Jalan Roda 3, 81300 Skudai, Johor Darul Ta'zim</h5>
+        <h5>📞 : +6011-61727335</h6>
+    </div>
+</div>
+</section>
+
+<!-- menu Section -->
+<section id="menu" class="menu-section">
+ <div class="menu-card">
+    <h1>Our Signature Dishes</h1>
+ </div>
+ <div class="menu-card">
+    <img src="image/menu1.png" alt="辣椒炒肉">
+    <h3>Stir-Fried Pork with Chili Peppers</h3>
+    <h4>辣椒炒肉</h4>
+    <p class="menu-text">材料 ： 辣椒-豆豉-五花肉</p>
+    <p class="menu-desc">源自湘菜，取猪肉、豆豉与青椒同炒。肉中带有青椒味，青椒附着肉香，鲜嫩可口，风味独特。</p>
+ </div>
+ <div class="menu-card">
+    <img src="image/menu2.png" alt="麻婆豆腐">
+    <h3>Mapo Tofu</h3>
+    <h4>麻婆豆腐</h4>
+    <p class="menu-text">材料 ： 郫县豆酱-猪肉末-嫩豆腐</p>
+    <p class="menu-desc">经典川菜，豆腐与猪肉末同煮，麻辣鲜香，入口嫩滑，味道有层次，乃清朝成都陈氏所创之名菜。</p>
+ </div>
+ <img src="menu.jpg" alt="menu 1" style="width: 100%;">
+</section>
+
+<!-- event Section -->
+<section id="events" class="event-section">
+  <div class="event">
+     <h1>Event</h1>
+  </div>
+  <p>Chinese Omakase</p>
+  <div class="event">
+
+     <img src="image/event1.jpg" alt="event1">
+     <img src="image/event2.jpg" alt="event1">
+     <img src="image/event3.jpg" alt="event1">
+     <img src="image/event4.jpg" alt="event1">
+     <img src="image/event5.jpg" alt="event1">
+     <img src="image/event6.jpg" alt="event1">
+     <img src="image/event7.jpg" alt="event1">
+  </div>
+ </section>
+
+ <!-- gallery Section -->
+<section id="gallery" class="gallery-section">
+  <div class="gallery"><h1>Gallery</h1></div>
+<div class="gallery-card">
+  <div class="gallery"><img src="image/g1.png" alt="event1"></div>
+  <div class="gallery"><img src="image/g2.png" alt="event1"></div>
+  <div class="gallery"><img src="image/g3.png" alt="event1"></div>
+  <div class="gallery"><img src="image/g4.png" alt="event1"></div>
+  <div class="gallery"><img src="image/g5.png" alt="event1"></div>
+  <div class="gallery"><img src="image/g6.png" alt="event1"></div>
+</div>
+
+ </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 RC Media Creation. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

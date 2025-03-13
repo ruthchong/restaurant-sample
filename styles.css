@@ -1,160 +1,416 @@
-html, body {
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black; /* 确保背景是黑色 */
-    overflow-x: hidden; /* 防止横向滚动 */
-}
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    padding: 0 20;
+    color: #fff;
+    background-color: #000;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3 {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;                  
+  }
+
+  p {
+    color:#c49b63;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c49b63;
+    color: #000;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    z-index: 10;
-}
-.top-left, .top-right {
-    display: flex;
-    gap: 10px;
-    
-}
-
-.top-left button {
-    background-color: #5a211f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-.top-left button:hover {
-    background-color: #9b1d19;
-}
-.top-right {
-    margin-right: 35px;
-    
-}
-
-.top-right button {
-    background-color: #5a211f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-.top-right button:hover {
-    background-color: #9b1d19;
-}
-
-
-.logo {
-    position: absolute;
-    top: 100%;
-    left:80%;
-    transform: translateX(-50%);   
-}
-
-.logo img {
-    width: 100%; /* 让图片填充 .logo 容器 */
-    height: auto; /* 保持图片的宽高比 */
-}
-
-.slideshow-container {
+    padding: 5px;
     position: relative;
-    max-width: 100%;
-    height: 500px; /* 根据需要调整高度 */
-    margin: auto;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+
+  .nav-links li a:hover {
+    color: #c49b63; /* 悬停时字体颜色更改 */
+}
+  
+  .social-icons img {
+    width: 20px;
+    margin-right: 20px ;
+  }
+  
+ /* Home Section */
+.home-section {
+    position: relative;
+    height: 100vh;
     overflow: hidden;
-    background-color: black; /* 背景设为黑色 */
-}
-
-.slide {
+  }
+  
+  /* 幻灯片容器 */
+  .slideshow {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    background-color: black; /* 确保每张幻灯片的背景也是黑色 */
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.fade {
-    animation: fadeEffect 1.5s ease-in-out forwards;
-}
-
-/* 渐显动画，从黑色背景出现 */
-@keyframes fadeEffect {
-    from {
-        opacity: 0;
-        filter: brightness(0); /* 初始黑色 */
-    }
-    to {
-        opacity: 1;
-        filter: brightness(1); /* 渐显至正常亮度 */
-    }
-}
-.slide {
-    display: none;
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-}
-.slide img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color:aliceblue;
-    background: rgb(46, 46, 46);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.menu-panel {
-    position: fixed;
-    top: -100%;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    transition: top 0.5s ease-in-out;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  /* 单张幻灯片 */
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* 设为透明 */
+    transition: opacity 1s ease-in-out;
+}
+
+/* 当前显示的幻灯片 */
+.slide.active {
+    opacity: 1; /* 只有 active 的幻灯片可见 */
+}
+  
+  /* 覆盖层 */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  /* 内容区域 */
+  .home-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    margin-top: 30vh
+  }
+  /* About Us Section */
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #111;
+  }
+  
+  .team {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin-top: 30px;
+  }
+  
+.team-member {
+  max-width: 600px;
+  text-align: center;
+  margin: 0 auto; /* 居中 */
 }
-.menu-panel.show {
-    top: 0;
+
+.team-photo {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background-image: url('team.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto 20px;
+
+    /* 初始状态：隐藏在右侧，透明 */
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
 }
-.menu-section {
-    transition: transform 0.3s ease-in-out;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 1.5rem;
+
+/* 当滚动到 About Us 时，触发动画 */
+.about-section.show .team-photo {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.team-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.team-info .person {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.team-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.team-info p {
+  font-size: 1rem;
+  color: #c49b63;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+  /* Venues Section */
+  .venues-section {
+    padding: 50px;
     text-align: center;
+    background-color: #000;
+  }
+  
+  .venue-card {
+    display: block;
+    margin: 20px;
+    width: 300px;
+  }
+
+  .venue-container { 
+    display: flex;
+    flex-direction: column; /* 纵向排列 */
+    align-items: center; /* 居中对齐（可选） */
 }
-.menu-section:hover {
-    transform: scale(1.1);
+  
+.venue-card {
+    position: relative; /* 让遮罩层相对于 .venue-card 定位 */
+    width: 300px; /* 你可以调整宽度 */
 }
+
+.venue-card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    filter: brightness(70%); /* 让图片变暗，相当于加了一层黑色 */
+}
+
+.venue-details {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  display: none; /* 默认隐藏 */
+}
+
+/* Menu Section */
+
+.menu-section {
+  text-align: center;
+  background-color: #111;
+}
+.menu-card {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 80%; /* 限制宽度，防止内容撑满屏幕 */
+}
+
+.menu-card img {
+  width: 350px;
+  border-radius: 10px;
+  filter: brightness(0); /* 初始黑色 */
+  transition: filter 1s ease-in-out; /* 添加渐变效果 */
+}
+
+/* 当图片可见时，恢复亮度 */
+.menu-card.show img {
+  filter: brightness(1);
+}
+
+.menu-text {
+  color: #c49b63;
+}
+
+.menu-desc {
+  color:#b1b1b1
+}
+
+
+
+  /* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #111;
+}
+  
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+  
+.footer-links li {
+    margin: 0 15px;
+}
+
+/* Event Section */
+
+.event-section {
+  text-align: center;
+  background-color: #000000;
+}
+
+.event {
+  display: flex;
+  flex-wrap: wrap;  /* 允许换行 */
+  justify-content: center; /* 水平居中 */
+  gap: 10px; /* 图片间距 */
+}
+
+.event img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  border-radius: 10px;
+  filter: brightness(70%); /* 让图片变暗，相当于加了一层黑色 */
+}
+
+/* **在窄屏幕上调整图片排列** */
+@media (max-width: 1024px) {
+  .event img {
+      width: calc(33.33% - 10px); /* 3 张一行 */
+  }
+}
+
+@media (max-width: 768px) {
+  .event img {
+      width: calc(50% - 10px); /* 2 张一行 */
+  }
+}
+
+@media (max-width: 480px) {
+  .event img {
+      width: 100%; /* 1 张占满一行 */
+  }
+}
+
+/* gallery Section */
+.gallery-section {
+  text-align: center;
+  background-color: #111;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;  /* 允许换行 */
+  justify-content: center; /* 水平居中 */
+  gap: 50px; /* 图片间距 */
+}
+
+.gallery img {
+  width: calc(25% - 10px); /* 在大屏幕上 4 张一行 */
+  max-width: 200px; /* 限制最大宽度 */
+  height: auto;
+  border-radius: 10px; /* 圆角 */
+}
+
+/* **在窄屏幕上调整图片排列** */
+@media (max-width: 1024px) {
+  .gallery img {
+      width: calc(33.33% - 10px); /* 3 张一行 */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery img {
+      width: calc(50% - 10px); /* 2 张一行 */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery img {
+      width: 100%; /* 1 张占满一行 */
+  }
+}
+
+  /* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+  
+  .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.hamburger:hover .bar {
+    background-color: #ffcc00; /* 你可以换成自己想要的颜色 */
+}
+
+  
+/* Mobile Styles */
+@media (max-width: 768px) {
+.hamburger {
+      display: flex;
+      margin: 20px;
+}
+  
+.nav-links {
+      position: absolute;
+      top: 60px;
+      right: -100%;
+      height: 100vh;
+      width:100px;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.7);
+      align-items: left;
+      justify-content: left;
+      transition: 0.5s;
+}
+  
+.nav-links.active {
+      right: 0;
+}
+  
+.nav-links li {
+      margin: 20px 0;
+}
+  
+.social-icons {
+      display: none;
+}
+}
+
+.logo {
+    width: 60px;
+  }

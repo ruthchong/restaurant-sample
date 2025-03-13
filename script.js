@@ -1,48 +1,87 @@
+// Toggle mobile menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-let slideIndex = 0;
-function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 3000);
-}
-showSlides();
-
-document.getElementById("locationBtn").onclick = function() {
-    document.getElementById("locationPopup").style.display = "block";
-};
-document.querySelector(".close").onclick = function() {
-    document.getElementById("locationPopup").style.display = "none";
-};
-document.getElementById("reservationBtn").onclick = function() {
-    window.location.href = "https://docs.google.com/forms";
-};
-
-document.getElementById("menuBtn").addEventListener("click", function() {
-    document.getElementById("menuPanel").classList.toggle("show");
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-    
-    function showSlides() {
-        // 隐藏所有幻灯片
-        slides.forEach(slide => {
-            slide.style.opacity = "0";
-        });
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-links li a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
 
-        // 显示当前幻灯片
-        slides[slideIndex].style.opacity = "1";
+document.addEventListener("DOMContentLoaded", function () {
+    function handleScroll() {
+        const aboutSection = document.querySelector(".about-section");
+        const rect = aboutSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-        // 更新索引，循环播放
-        slideIndex = (slideIndex + 1) % slides.length;
-        setTimeout(showSlides, 3000); // 3秒切换一次
+        if (rect.top < windowHeight * 0.75) {
+            aboutSection.classList.add("show");
+        }
     }
 
-    showSlides();
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // 页面加载时检查一次
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === index) {
+                slide.classList.add("active");
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length; // 轮播
+        showSlide(currentSlide);
+    }
+
+    // 设置初始显示
+    showSlide(currentSlide);
+
+    // 每 3 秒切换一次幻灯片
+    setInterval(nextSlide, 3000);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    function handleScroll() {
+        document.querySelectorAll(".menu-card").forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.top < windowHeight * 0.75) {
+                card.classList.add("show");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // 页面加载时检查一次
+});
+
+function toggleDetails(id) {
+    var details = document.getElementById(id);
+    if (details.style.display === "none") {
+        details.style.display = "block";
+    } else {
+        details.style.display = "none";
+    }
+}
+
+document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", function() {
+        this.classList.toggle("zoomed");
+    });
 });
