@@ -85,3 +85,4 @@ document.querySelectorAll(".gallery img").forEach(img => {
         this.classList.toggle("zoomed");
     });
 });
+

@@ -333,10 +333,14 @@ body {
 }
 
 .gallery img {
-  width: calc(25% - 10px); /* 在大屏幕上 4 张一行 */
-  max-width: 200px; /* 限制最大宽度 */
-  height: auto;
-  border-radius: 10px; /* 圆角 */
+  width: 100%;
+  max-width: 300px; /* 根据需要调整 */
+  display: block;
+  transition: transform 0.3s ease-in-out; /* 平滑过渡效果 */
+}
+
+.gallery img:active {
+  transform: scale(1.3); /* 点击时放大 10% */
 }
 
 /* **在窄屏幕上调整图片排列** */
@@ -413,4 +417,41 @@ body {
 
 .logo {
     width: 60px;
+  }
+
+  .contact-section {
+    background: url('contact-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    
+  }
+  
+  /* 适用于大屏幕（默认） */
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  /* 信息框样式 */
+  .info-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 200px;
+  }
+  
+  /* 📌 适配手机屏幕 */
+  @media screen and (max-width: 768px) {
+    .contact-info {
+      flex-direction: column; /* 让内容垂直排列 */
+      align-items: center; /* 居中对齐 */
+      gap: 20px; /* 调整间距 */
+    }
+  
+    .info-box {
+      width: 90%; /* 让信息框适应屏幕 */
+      text-align: center; /* 文字居中 */
+    }
   }
