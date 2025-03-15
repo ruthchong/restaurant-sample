@@ -178,7 +178,7 @@ a {
   font-size: 1rem;
   line-height: 1.6;
   color: #ccc;
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 auto;
 }
 
@@ -240,13 +240,26 @@ a {
   padding: 20px;
   margin: 0 auto;
   max-width: 80%;
+  text-align: center;
 }
 
 .menu-card img {
-  width: 450px;
+  width: 450px; /* 默认桌面端宽度 */
+  max-width: 100%; /* 确保不会超出容器 */
+  height: auto; /* 保持图片比例 */
   border-radius: 10px;
   filter: brightness(0);
   transition: filter 1s ease-in-out;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .menu-card img {
+    width: 100%; /* 让图片填充整个父容器 */
+    max-width: 100%; /* 确保不会超出屏幕 */
+  }
 }
 
 .menu-card.show img {
@@ -265,8 +278,10 @@ a {
 .event-section {
   text-align: center;
   background-color: #000;
+  padding: 20px;
 }
 
+/* 图片容器 */
 .event {
   display: flex;
   flex-wrap: wrap;
@@ -274,6 +289,7 @@ a {
   gap: 10px;
 }
 
+/* 默认桌面端样式 */
 .event img {
   width: 100%;
   max-width: 300px;
@@ -282,6 +298,20 @@ a {
   filter: brightness(70%);
 }
 
+/* 手机端样式：两张图片一行 */
+@media (max-width: 768px) {
+  .event {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 列布局 */
+    gap: 10px;
+  }
+  
+  .event img {
+    width: 100%;
+    max-width: none; /* 让图片适应网格 */
+  }
+}
 /* Gallery Section */
 .gallery-section {
   text-align: center;
